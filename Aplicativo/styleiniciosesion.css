@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to right,#f6bb09, #ffdc72);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    text-align: center;
+    padding: 50px;
+    box-shadow: 0 5px 10px  #ff7626;
+}
+
+form .tituloo {
+    color: black;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+
+form .sub {
+    color: #bab9b9;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+form label {
+    margin-bottom: 44px;
+    color: none;
+}
+
+form label .fa-solid{
+    font-size: 21px;
+    color: #ff7626;
+
+}
+
+form label input {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border-bottom: solid 1px #ff7626;
+    outline: 0px;
+    transition: all 0.5s ease;
+    margin-left: 20px;
+}
+
+form label input::placeholder {
+    color: #9a9999;
+    font-style: italic;
+}
+
+form b{
+    font-size: 20px;
+}
+
+form .boton {
+    font-size: 20px;
+    font-weight: 20px;
+    color: #edf2f4;
+    padding: 8px 20px;
+    background: #ff7626;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+    border-radius: 40px;
+    transition: all 0.5s ease 0s;
+
+}
+
+form .boton:hover {
+    color: rgb(255, 255, 255);
+    background-color: #9b4717;
+}
+
+
