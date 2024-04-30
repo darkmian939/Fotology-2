@@ -44,11 +44,10 @@ $conexion->close();
         </div>
         <nav>
             <ul class="linksnav">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#">Portafolio</a></li>
-                <li><a href="#">Mensajes</a></li>
-                <li><a href="#">Ayuda</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="Perfil.php">My Perfil</a></li>
+                <li><a href="Publicaciones.html">Publicaciones</a></li>
+                <li><a href="Publicaciones.html">Calificaciones</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <a class="btn" href="../InicioDeSesion/index.php"><button>Cerrar Sesión</button></a>

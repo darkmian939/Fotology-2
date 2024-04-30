@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Estilo para el botón de eliminación */
         .eliminar-btn {
             background-color: red;
             color: white;
@@ -20,15 +19,16 @@
 </style>
 </head>
 <body>
+<script>
+function eliminar(){
+  var respuesta=confirm("¿Estas seguro que deseas eliminar este registro?");
+  return respuesta
+}
+    </script>
 <header class="header">
         <div class="logo">
           <img src="../Recursos/LOGOA.png" alt="Logo" />
         </div>
-        <nav>
-          <ul class="linksnav">
-            <li><a href="#">Inicio</a></li>
-          </ul>
-        </nav>
         <a class="btn" href="../InicioDeSesion/index.php"
           ><button>Cerrar Sesion</button></a
         >
@@ -66,7 +66,7 @@
                              <!-- Formulario para enviar la solicitud de eliminación -->
                              <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <input type="hidden" name="eliminar_id" value="<?= $datos->IDfotografo ?>">
-                                <button type="submit" class="eliminar-btn">Eliminar</button>
+                                <button type="submit" onclick="return eliminar()" class="eliminar-btn">Eliminar</button>
                             </form>
                         </td>
                     </tr>

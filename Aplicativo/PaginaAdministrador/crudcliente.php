@@ -16,15 +16,16 @@
     <title>Panel de Administrador</title>
 </head>
 <body>
+<script>
+function eliminar(){
+  var respuesta=confirm("¿Estas seguro que deseas eliminar este registro?");
+  return respuesta
+}
+    </script>
     <header class="header">
         <div class="logo">
             <img src="../Recursos/LOGOA.png" alt="Logo" />
         </div>
-        <nav>
-          <ul class="linksnav">
-            <li><a href="#">Inicio</a></li>
-          </ul>
-        </nav>
         <a class="btn" href="../InicioDeSesion/index.php"><button>Cerrar Sesion</button></a>
     </header>
 
@@ -40,7 +41,7 @@
                     <th>Email</th>
                     <th>Contraseña</th>
                     <th>Telefono</th>
-                    <th>Acción</th> <!-- Nueva columna para el botón de eliminación -->
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,7 +59,7 @@
                             <!-- Formulario para enviar la solicitud de eliminación -->
                             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <input type="hidden" name="eliminar_id" value="<?= $datos->IDcliente ?>">
-                                <button type="submit" class="eliminar-btn">Eliminar</button>
+                                <button type="submit" onclick="return eliminar()" class="eliminar-btn">Eliminar</button>
                             </form>
                         </td>
                     </tr>

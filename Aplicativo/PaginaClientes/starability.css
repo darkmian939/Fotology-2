@@ -1,0 +1,62 @@
+/* Estilos personalizados para Starability */
+
+/* Cambiar el color de fondo de las estrellas */
+.starability-growRotate {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+    .starability-growRotate input[type="radio"] {
+        display: none;
+    }
+
+    .starability-growRotate label {
+        float: right;
+        padding: 0;
+        cursor: pointer;
+        -webkit-transition: .3s ease;
+        transition: .3s ease;
+    }
+
+        .starability-growRotate label:before {
+            content: '\2605';
+            font-size: 40px;
+            color: #000; /* Cambiar color de las estrellas a negro */
+        }
+
+    .starability-growRotate input[type="radio"]:checked ~ label:before,
+    .starability-growRotate input[type="radio"]:checked ~ label {
+        color: #ffcc00; /* Cambiar color de estrellas seleccionadas a amarillo */
+    }
+
+    .starability-growRotate label:hover:before {
+        transform: scale(1.2); /* Aumentar el tamaño al hacer hover */
+        color: #ffcc00; /* Cambiar color al hacer hover */
+    }
+
+
+.mas {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none;
+    padding: 20px 0px;
+}
+
+    .mas button {
+        font-weight: 700;
+        color: #ffffff;
+        padding: 8px 25px;
+        background: #ffc403;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+
+        .mas button:hover {
+            background-color: #e2f1f8;
+            color: #14150f;
+            transform: scale(1.1);
+        }

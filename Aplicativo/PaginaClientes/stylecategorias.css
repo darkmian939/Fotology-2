@@ -1,14 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    text-align: center;
-    margin: 0;
+/* Establecer estilos base */
+* {
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Header */
+/* Estilos del cuerpo de la página */
+body {
+    background-color: #dfdcdc;
+}
 
-.header{
+/* Estilos del encabezado */
+.header {
     background-color: #14150f;
     display: flex;
     justify-content: flex-end;
@@ -17,45 +21,45 @@ body {
     padding: 5px 10%;
 }
 
-.header .logo{
+.header .logo {
     cursor: pointer;
     margin-right: auto;
 }
 
-.header .logo img{
+.header .logo img {
     height: 60px;
     width: auto;
     transition: all 0.3s;
 }
 
-.header .logo img:hover{
+.header .logo img:hover {
     transform: scale(1.1);
 }
 
-.header .linksnav{
+.header .linksnav {
     list-style: none;
 }
 
-.header .linksnav li{
+.header .linksnav li {
     display: inline-block;
-    padding: 0 20px;    
+    padding: 0 20px;
 }
 
-.header .linksnav li:hover{
+.header .linksnav li:hover {
     transform: scale(1.1);
 }
 
-.header .linksnav a{
-    font-size: 700;
+.header .linksnav a {
+    font-size: 16px; /* Ajustar tamaño de fuente */
     color: #eceff1;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
-.header .linksnav li a:hover{
+.header .linksnav li a:hover {
     color: #ffc403;
 }
 
-.header .btn button{
+.header .btn button {
     margin-left: 20px;
     font-weight: 700;
     color: #1b3039;
@@ -67,83 +71,135 @@ body {
     transition: all 0.3s ease 0s;
 }
 
-.header .btn button:hover{
+.header .btn button:hover {
     background-color: #e2f1f8;
     color: #ffc403;
     transform: scale(1.1);
 }
 
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #333;
-    text-decoration: none;
+.nombre-cliente {
+    font-size: 16px;
     font-weight: bold;
+    color: white;
+    margin-right: 5px;
+    margin-top: 0px;
 }
 
-.categoria {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 20px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.categoria h2 {
+/* Estilos para encabezados y contenedores */
+h1 {
+    text-align: center;
     color: #333;
+    margin-right: 50px;
+    margin-top: 40px;
+    padding: 30px 150px;
 }
 
-.imagenes {
+/* Estilos para las categorías */
+.categorias h1 {
+    font-size: 35px;
+    text-align: center;
+    color: #14150f;
+    padding: 20px;
+}
+
+.categorias p {
+    text-align: justify;
+    padding: 30px 150px;
+}
+
+/* Estilos para las tarjetas */
+.container-card {
+    background-color: #fffffff2;
+    width: 75%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 0px 0px;
+    margin: auto;
 }
 
-.imagen {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.card {
+    width: 75%;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px #ffc40345;
+    transform: translateY(-2%);
+}
+
+.card img {
+    width: 50%;
+    display: block;
+    margin: 20px auto 0;
+    height: 200px;
+}
+
+.card .contenido-card {
+    padding: 5px;
     text-align: center;
 }
 
-.imagen img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+.card .contenido-card h3 {
+    margin-bottom: 15px;
+    color: #1b3039;
 }
 
-.comentarios input[type="text"],
-.comentarios select,
-.comentarios button {
-    margin-top: 10px;
+.card .contenido-card p {
+    line-height: 1.8;
+    color: #14150f;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
-.comentarios select {
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.comentarios button {
-    background-color: #ff6600;
-    color: #fff;
-    padding: 5px 10px;
+.smas button {
+    font-weight: 700;
+    color: #ffffff;
+    padding: 8px 25px;
+    background: #ffc403;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease 0s;
 }
 
-.comentarios button:hover {
-    background-color: #ff3300;
+.smas button:hover {
+    background-color: #cfcfcf;
+    color: #14150f;
+    transform: scale(1.1);
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #14150f;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffc403;
+    color: #14150f;
 }
