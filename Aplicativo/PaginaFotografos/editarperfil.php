@@ -1,56 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Perfil</title>
-    <link rel="stylesheet" href="stylepagfotografo.css">
-</head>
-<body>
-    <header class="header">
-        <div class="logo">
-            <img src="../Recursos/LOGOA.png" alt="Logo">
-        </div>
-        <nav>
-            <ul class="linksnav">
-            <li><a href="pagfotografo.html">Inicio</a></li>
-          <li><a href="portafolio.php">Portafolio</a></li>
-          <li><a href="#">Mensajes</a></li>
-          <li><a href="#">Ayuda</a></li>
-          <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <?php
-        include 'actualizar.php';
-        ?>
-        <section class="profile-edit">
-            <h2>Editar Perfil</h2><br>
-            <form id="edit-profile-form" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" value="Nombre del Fotógrafo">
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" value="correo@fotografo.com">
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Numero de contacto:</label>
-                    <input type="number" id="telefono" name="telefono" value="3103232332">
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" rows="4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus modi et est! Corrupti aliquid reprehenderit sed perspiciatis esse quisquam nisi, consectetur culpa tempore beatae dolore delectus eum nesciunt quis ipsa.</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="foto">Foto de Perfil:</label>
-                    <input type="file" id="foto" name="foto">
-                </div>
-                <button class="edit-button" type="button" id="save-button">Guardar Cambios</button>
-            </form>
-        </section>
-    </main>
-</body>
-</html>
+<?php
+session_start();
+include('../InicioDeSesion/conexion.php');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_SESSION['usuario_id'];
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $telefono = $_POST['telefono'];
+    $descripcion = $_POST['descripcion'];
+
+    // Verifica si se ha cargado una nueva imagen
+    if ($_FILES['foto']['error'] == 0) {
+        // Verificar y mover el archivo de imagen
+        $rutaGuardado = "../ImagenesDeFotografos/{$id}.jpg";
+        $archivoImagen = $_FILES['foto']['tmp_name'];
+        $nombreImagen = $_FILES['foto']['name'];
+        $extensionImagen = pathinfo($nombreImagen, PATHINFO_EXTENSION);
+        $nombreImagenUnico = uniqid($id . '_', true) . '.' . $extensionImagen;
+        $rutaGuardado = $uploadDirectory . $nombreImagenUnico;
+
+        // Verificar el tipo de archivo (puedes agregar más tipos de imagen si es necesario)
+        $tiposPermitidos = array('jpg', 'jpeg', 'png', 'gif');
+        if (in_array(strtolower($extensionImagen), $tiposPermitidos)) {
+            if (move_uploaded_file($archivoImagen, $rutaGuardado)) {
+                // Actualiza los datos del perfil sin tocar la columna de imagen
+                $query = "UPDATE Fotografo SET Nombre_fotografo=?, Email=?, Telefono=?, Descripcion=?, Foto_de_perfil=? WHERE IDfotografo=?";
+                $stmt = $conexion->prepare($query);
+                $stmt->bind_param("sssssi", $nombre, $correo, $telefono, $descripcion, $nombreImagenUnico, $id);
+
+                if ($stmt->execute()) {
+                    header("Location: perfil.php");
+                    exit();
+                } else {
+                    echo "Error al actualizar el perfil.";
+                }
+
+                $stmt->close();
+            } else {
+                echo "Error al mover la imagen.";
+            }
+        } else {
+            echo "Tipo de archivo no permitido.";
+        }
+    } else {
+        // Si no se cargó una nueva imagen, actualiza los otros campos sin cambiar la imagen de perfil
+        $query = "UPDATE Fotografo SET Nombre_fotografo=?, Email=?, Telefono=?, Descripcion=? WHERE IDfotografo=?";
+        $stmt = $conexion->prepare($query);
+        $stmt->bind_param("ssssi", $nombre, $correo, $telefono, $descripcion, $id);
+
+        if ($stmt->execute()) {
+            header("Location: perfil.php");
+            exit();
+        } else {
+            echo "Error al actualizar el perfil.";
+        }
+
+        $stmt->close();
+    }
+
+    $conexion->close();
+}
+?>

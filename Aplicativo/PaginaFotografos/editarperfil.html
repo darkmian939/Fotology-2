@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="stylepagfotografo.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../Recursos/LOGOA.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="linksnav">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Mensajes</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <a class="btn" href="../InicioDeSesion/index.php"><button>Cerrar Sesión</button></a>
+    </header>
+    <main>
+        <section class="profile-edit">
+            <h2>Editar Perfil</h2><br>
+            <form id="edit-profile-form" method="POST" action="editarperfil.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" value="">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Numero de contacto:</label>
+                    <input type="number" id="telefono" name="telefono" value="">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foto">Foto de Perfil:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImage(this);">
+                </div>
+                <img id="image-preview" src="" alt="Vista previa de la imagen" style="max-width: 200px;">
+                <button class="edit-button" type="submit">Guardar Cambios</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        function previewImage(input) {
+            var imagePreview = document.getElementById('image-preview');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                imagePreview.src = ""; // Deja la fuente de la imagen de vista previa en blanco cuando no se selecciona ninguna imagen
+            }
+        }
+    </script>
+</body>
+</html>
+

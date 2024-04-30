@@ -1,4 +1,4 @@
-<?php   
+<?php
 session_start();
 include('conexion.php');
 
@@ -12,17 +12,18 @@ if (empty($Usuario)) {
     header("Location: index.php?error=La clave Es Requerida");
     exit();
 } else {
-    $q = "SELECT COUNT(*) as contar from Fotografo where Email = '$Usuario' and Contraseña = '$Clave'";
+    $q = "SELECT IDfotografo FROM Fotografo WHERE Email = '$Usuario' AND Contrasena = '$Clave'";
     $consulta = mysqli_query($conexion, $q);
     $array = mysqli_fetch_array($consulta);
 
-    if ($array['contar'] > 0) {
-        $_SESSION['username'] = $Usuario;
+    if ($array) {
+        $_SESSION['usuario_id'] = $array['IDfotografo']; // Establecer el ID del usuario en la sesión
 
-        header("Location: ../PaginaFotografos/pagfotografo.html");
+        header("Location: ../PaginaFotografos/perfil.php");
         exit();
     } else {
         header("Location: index.php?error=El usuario o la clave son incorrectas");
         exit();
     }
 }
+?>

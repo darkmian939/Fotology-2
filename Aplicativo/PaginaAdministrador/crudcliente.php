@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Estilo para el botón de eliminación */
         .eliminar-btn {
             background-color: red;
             color: white;
@@ -53,7 +52,7 @@
                         <td><?= $datos->IDcliente ?></td>
                         <td><?= $datos->Nombre_cliente ?></td>
                         <td><?= $datos->Email ?></td>
-                        <td><?= $datos->Contraseña ?></td>
+                        <td><?= $datos->Contrasena ?></td>
                         <td><?= $datos->Telefono ?></td>
                         <td>
                             <!-- Formulario para enviar la solicitud de eliminación -->

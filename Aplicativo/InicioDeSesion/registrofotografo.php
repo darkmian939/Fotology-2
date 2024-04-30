@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container-form sign-up">  
-        <form class="formulario" method="POST" action="registrodefotografo.php">
+        <form class="formulario" method="POST" action="registrodefotografo.php" enctype="multipart/form-data">
             <h2 class="create-account">Crear una cuenta</h2>
             <div class="iconos">
                 <div class="border-icon">
@@ -31,8 +31,23 @@
             <input type="tel" name="telefono" placeholder="telefono" required>
             <input type="email" name="email" placeholder="email" required>
             <input type="text" name="direccion" placeholder="direccion" required>
-            <input type="password" name="contrasena" placeholder="contraseña" required>            
-            <input type="submit" value="Registrarse" name="registrarse">            
+            <input type="password" name="contrasena" placeholder="contraseña" required>
+            <h5>foto de perfil</h5>
+            <input type="file" name="foto_de_perfil" accept="image/*" required>
+            <input type="submit" value="Registrarse" name="registrarse"> 
+            <br>
+            
+            <?php
+            if (isset($_GET['exito'])) {
+                ?>
+                <p class="success">
+                    <?php
+                    echo $_GET['exito'];
+                    ?>
+                </p>
+                <?php    
+            }
+            ?>
         </form>
 
         <div class="welcome-back">
@@ -44,5 +59,6 @@
         </div>
     </div>
     <script src="java.js"></script>
+</div>
 </body>
 </html>

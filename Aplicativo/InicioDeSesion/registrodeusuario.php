@@ -26,7 +26,7 @@ if(isset($_POST['nombre'], $_POST['telefono'], $_POST['email'], $_POST['contrase
         echo "El correo electrónico ya existe en la base de datos.";
     } else {
     
-        $sql = "INSERT INTO Cliente (IDcliente, Nombre_cliente, Email, Contraseña, Telefono) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Cliente (IDcliente, Nombre_cliente, Email, Contrasena, Telefono) VALUES (?, ?, ?, ?, ?)";
 
  
         $IDcliente = uniqid();

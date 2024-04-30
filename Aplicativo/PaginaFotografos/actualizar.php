@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = $_POST["telefono"];
     
     // Actualiza la información en la base de datos
-    $sql = "UPDATE fotografos SET Nombre_fotografo='$nombre', Email='$correo', Telefono='$telefono' WHERE id=$id"; // Asegúrate de ajustar la consulta SQL y el ID según tu estructura de base de datos
+    $query = "UPDATE Fotografo SET Nombre_fotografo=?, Email=?, Telefono=?, Descripcion=? WHERE IDfotografo=?";
     
     if ($conn->query($sql) === TRUE) {
         echo "Información actualizada correctamente.";

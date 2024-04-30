@@ -75,7 +75,7 @@
                     <label for="fotografo-mantener-sesion">Mantener Sesión</label>
                 </div>
                 <input type="submit" value="Iniciar Sesión" class="btn">
-            <p><a href="registrofotografo.html" id="switchToSignup">¿No tienes una cuenta? Regístrate aquí como Usuario.</a></p>
+            <p><a href="registrofotografo.php" id="switchToSignup">¿No tienes una cuenta? Regístrate aquí como Usuario.</a></p>
         </form>
         </div>
 

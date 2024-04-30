@@ -59,7 +59,7 @@
                         <td><?= $datos->IDfotografo ?></td>
                         <td><?= $datos->Nombre_fotografo ?></td>
                         <td><?= $datos->Email ?></td>
-                        <td><?= $datos->Contraseña ?></td>
+                        <td><?= $datos->Contrasena ?></td>
                         <td><?= $datos->Direccion ?></td>
                         <td><?= $datos->Telefono ?></td>
                         <td>

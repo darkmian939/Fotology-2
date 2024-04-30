@@ -12,7 +12,7 @@ if (empty($Usuario)) {
     header("Location: index.php?error=La clave Es Requerida");
     exit();
 } else {
-    $q = "SELECT COUNT(*) as contar from administrador where Email = '$Usuario' and Contraseña = '$Clave'";
+    $q = "SELECT COUNT(*) as contar from administrador where Email = '$Usuario' and Contrasena = '$Clave'";
     $consulta = mysqli_query($conexion, $q);
     $array = mysqli_fetch_array($consulta);
 
