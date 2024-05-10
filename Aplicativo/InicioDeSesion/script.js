@@ -1,7 +1,3 @@
-const usuarioForm = document.getElementById('Usuario');
-const fotografoForm = document.getElementById('Fotografo');
-const administradorForm = document.getElementById('Administrador');
-
 const usuarioContainer = document.getElementById('usuarioContainer');
 const fotografoContainer = document.getElementById('fotografoContainer');
 const administradorContainer = document.getElementById('administradorContainer');
@@ -24,4 +20,5 @@ document.querySelectorAll('.header a').forEach((link) => {
         }
     });
 });
+
 
