@@ -19,7 +19,7 @@ if (empty($Usuario)) {
     if ($array['contar'] > 0) {
         $_SESSION['Usuario'] = $Usuario;
 
-        header("Location: ../PaginaAdministrador/pagadministrador.php");
+        header("Location: ../PaginaAdministrador/bienvenida.php");
         exit();
     } else {
         header("Location: index.php?error=El usuario o la clave son incorrectas");
