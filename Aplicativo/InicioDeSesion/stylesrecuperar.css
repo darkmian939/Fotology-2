@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to left, #ff8800, #dc5400);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.container-form {
+    background-color: #fff;
+    max-width: 500px;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    box-shadow: 0 0 30px #000;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.container-form .header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.container-form .header h2 {
+    color: #000000;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.container-form .form {
+    margin-top: 20px;
+}
+
+.container-form .row {
+    margin-bottom: 20px;
+}
+
+.container-form .row label {
+    font-size: 16px;
+    color: #000000;
+}
+
+.container-form .row input[type="email"] {
+    width: 100%;
+    color: #000000;
+    background-color: #ff6f0012;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.container-form .btn {
+    width: 100%;
+    background-color: #ff914d;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.container-form .footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container-form .footer a {
+    font-size: 14px;
+    color: #ff914d;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.container-form .footer a:hover {
+    color: #ffa159;
+}
+
+.error {
+    color: #fff; 
+    background-color: #ff914d; 
+    border-radius: 20px;
+    padding: 10px; 
+    margin-top: 10px; 
+    font-weight: bold; 
+    text-align: center;
+    align-items: center;
+}
