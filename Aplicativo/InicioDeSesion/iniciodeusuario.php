@@ -1,53 +1,33 @@
-<?php
+<?php   
 session_start();
 include('conexion.php');
 
-$Usuario = $_POST['Email']; 
-$Clave = $_POST['Clave'];
-
-if (empty($Usuario)) {
-    header("Location: index.php?error=El Usuario Es Requerido");
-    exit();
-} elseif (empty($Clave)) {
-    header("Location: index.php?error=La clave Es Requerida");
-    exit();
-} else {
-    // Consulta preparada para evitar inyección SQL
-    $q = "SELECT COUNT(*) as contar from cliente where Email = ? and Contrasena = ?";
-    $stmt = mysqli_prepare($conexion, $q);
-    
-    // Verificar si la preparación de la consulta fue exitosa
-    if ($stmt) {
-        // Asociar parámetros con la consulta preparada
-        mysqli_stmt_bind_param($stmt, "ss", $Usuario, $Clave);
-        
-        // Ejecutar la consulta preparada
-        mysqli_stmt_execute($stmt);
-        
-        // Vincular resultado de la consulta
-        mysqli_stmt_bind_result($stmt, $contar);
-        
-        // Obtener resultados
-        mysqli_stmt_fetch($stmt);
-        
-        // Verificar si se encontró un usuario con esa combinación de Email y Contraseña
-        if ($contar > 0) {
-            $_SESSION['Usuario'] = $Usuario;
-            header("Location: ../PaginaClientes/pagina.html");
-            exit();
-        } else {
-            header("Location: index.php?error=El usuario o la clave son incorrectas");
-            exit();
-        }
-    } else {
-        // Error en la preparación de la consulta
-        echo "Error en la preparación de la consulta SQL";
-    }
-
-    // Cerrar la consulta preparada
-    mysqli_stmt_close($stmt);
+if ($conexion->connect_error) {
+    die('Error de conexión: ' . $conexion->connect_error);
 }
 
-// Cerrar conexión a la base de datos
-mysqli_close($conexion);
+$correo = $_POST['Email'];
+$contrasena = $_POST['Clave'];
+
+$stmt = $conexion->prepare("SELECT IDcliente, Nombre_cliente, foto_perfil, Contrasena FROM Cliente WHERE Email = ?");
+$stmt->bind_param("s", $correo);
+$stmt->execute();
+$resultado = $stmt->get_result();
+if ($resultado->num_rows === 1) {
+    $fila = $resultado->fetch_assoc();
+    $contrasena_bd = $fila['Contrasena'];
+    if ($contrasena === $contrasena_bd) {
+        $_SESSION['usuario_id'] = $fila['IDcliente'];
+        $_SESSION['nombre_cliente'] = $fila['Nombre_cliente'];
+        $_SESSION['foto_perfil'] = $fila['foto_perfil'];
+        header("Location: ../PaginaClientes/pagina.php");
+        exit(); // Importante para detener la ejecución después de redireccionar
+    } else {
+        echo "Contraseña incorrecta.";
+    }
+} else {
+    echo "Correo electrónico no encontrado.";
+}
+$stmt->close();
+$conexion->close();
 ?>

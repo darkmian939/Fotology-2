@@ -1,36 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PagPrincipal</title>
-    <link rel="stylesheet" href="./stylepagprincipal.css" />
-    <link rel="icon" href="../Recursos/LOGOA.png" />
-    <script
-      src="https://kit.fontawesome.com/9bf48cfb4e.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="logo">
-        <img src="../Recursos/LOGOA.png" alt="Logo" />
-      </div>
-      <nav>
-        <ul class="linksnav">
-          <li><a href="pagina.html">Inicio</a></li>
-          <li><a href="fotografos.html">Fotografos</a></li>
-          <li><a href="categorias.html">Categorias</a></li>
-          <li><a href="ayuda.html">Ayuda</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      <a class="btn" href="../InicioDeSesion/index.php"
-        ><button>Cerrar Sesion</button></a
-      >
-    </header>
+<?php
+session_start();
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: iniciodesesion.php");
+    exit();
+}
 
+$nombreCliente = $_SESSION['nombre_cliente'];
+$fotoPerfil = $_SESSION['foto_perfil'];
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <!-- Enlaza tu archivo CSS -->
+    <link rel="stylesheet" href="stylepagprincipal.css">
+    <!-- Enlaza tu fuente de iconos (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Logo y menú de navegación -->
+        <div class="logo">
+            <img src="../Recursos/LOGOA.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="linksnav">
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="fotografos.html">Fotografos</a></li>
+                <li><a href="categorias.html">Categorías</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Menú desplegable -->
+        <div class="perfil-dropdown">
+            <button class="btn-profile">
+                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil">
+                Bienvenido, <?php echo $nombreCliente; ?>
+                <i class="fas fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="perfil.php">Ver Perfil</a>
+                <form method="post" action="../InicioDeSesion/Usuario.php">
+                    <button type="submit"name="cerrar_sesion">Cerrar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </header>
     <div class="fdestacados">
       <h1>Fotografos</h1>
       <h2>Destacados</h2>
