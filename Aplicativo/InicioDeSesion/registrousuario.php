@@ -12,15 +12,16 @@
     <title>Registrarse</title>
 </head>
 <body>
+    <div class="container-form sign-up">  
     <div class="container-form sign-up">
         <div class="welcome-back">
             <div class="message">
                 <h2>Bienvenido a Fotology</h2>
                 <p>Si ya tienes una cuenta, por favor inicia sesión aquí</p>
-                <button><a href="index.php" class="sign-up-btn">Iniciar Sesión</a></button>
+                <button><a href="Usuario.php" class="sign-up-btn">Iniciar Sesión</a></button>
             </div>
         </div>
-        <form class="formulario" method="POST" action="registrodeusuario.php">
+        <form class="formulario" method="POST" action="registrodeusuario.php" enctype="multipart/form-data">
             <h2 class="create-account">Crear una cuenta</h2>
             <div class="iconos">
                 <div class="border-icon">
@@ -36,12 +37,26 @@
             <p class="cuenta-gratis">Crear una cuenta gratis</p>
             <input type="text" name="nombre_cliente" placeholder="nombre" required>
             <input type="tel" name="telefono" placeholder="telefono" required>
-            <input type="email" name="Email" placeholder="Correo electrónico" required>
-            <input type="password" name="Clave" placeholder="Contraseña" required>
+            <input type="email" name="email" placeholder="email" required>
+            <input type="password" name="contrasena" placeholder="contraseña" required>
+            <h5>foto de perfil</h5>
             <input type="file" name="foto_perfil" accept="image/*" required>
-            <input type="submit" value="Registrarse" name="registrarse" required>            
+            <input type="submit" value="Registrarse" name="registrarse"> 
+            <br>
+            
+            <?php
+            if (isset($_GET['exito'])) {
+                ?>
+                <p class="success">
+                    <?php
+                    echo $_GET['exito'];
+                    ?>
+                </p>
+                <?php    
+            }
+            ?>
         </form>
-    </div>
     <script src="java.js"></script>
+</div>
 </body>
 </html>
