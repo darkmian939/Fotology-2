@@ -21,10 +21,11 @@
         <nav>
             <ul class="linksnav">
                <ul class="linksnav">
-                <li><a href="Perfil.php">My Perfil</a></li>
-                <li><a href="Publicaciones.html">Portafolio</a></li>
-                <li><a href="Publicaciones.html">Calificaciones</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+               <li><a href="perfil.php">Inicio</a></li>
+          <li><a href="portafolio.php">Portafolio</a></li>
+          <li><a href="mensajes.php">Mensajes</a></li>
+          <li><a href="ayuda.html">Ayuda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
             </ul>
            
         </nav>

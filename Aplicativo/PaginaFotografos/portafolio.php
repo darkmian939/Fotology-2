@@ -13,7 +13,7 @@
       </div>
       <nav>
         <ul class="linksnav">
-        <li><a href="pagfotografo.html">Inicio</a></li>
+        <li><a href="perfil.php">Inicio</a></li>
           <li><a href="portafolio.php">Portafolio</a></li>
           <li><a href="mensajes.php">Mensajes</a></li>
           <li><a href="ayuda.html">Ayuda</a></li>
