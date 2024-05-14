@@ -48,5 +48,20 @@
             ?>
         </section>
     </main>
+    <?php
+    // Directorio donde se encuentran las imágenes
+    $upload_dir = "uploads/";
+
+    // Obtener la lista de archivos en el directorio
+    $files = scandir($upload_dir);
+
+    // Mostrar cada imagen encontrada
+    foreach($files as $file) {
+        if ($file != '.' && $file != '..') { // Ignorar los directorios . y ..
+            echo "<img src='$upload_dir$file' alt='Imagen'><br>";
+        }
+    }
+    ?>
+
 </body>
 </html>

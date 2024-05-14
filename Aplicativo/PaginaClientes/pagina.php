@@ -54,10 +54,17 @@ $conexion->close();
         
         <nav>
             <ul class="linksnav">
+<<<<<<< HEAD
                 <li><a href="pagina.php">Inicio</a></li>
                 <li><a href="fotografos.html">Fotografos</a></li>
                 <li><a href="categorias.html">Categorías</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
+=======
+          <li><a href="fotografos.html">Fotografos</a></li>
+          <li><a href="categorias.html">Categorias</a></li>
+          <li><a href="ayuda.html">Ayuda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+>>>>>>> 61f572ea148373b1527ce293c332cef6d0c7e6ad
             </ul>
         </nav>
         <a class="btn" href="../InicioDeSesion/Usuario.php"><button>Cerrar Sesion</button></a>

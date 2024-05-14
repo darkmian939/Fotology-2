@@ -1,0 +1,20 @@
+Título: Camilo
+Descripción: Prueba
+Categoría: Perfil
+Nombre del archivo: Profile.jpg
+
+Título: Camilo
+Descripción: Prueba
+Categoría: Perfil
+Nombre del archivo: Profile.jpg
+
+Título: Yo
+Descripción: Orueba
+Categoría: Hola
+Nombre del archivo: Profile.jpg
+
+Título: yo
+Descripción: hola
+Categoría: Perfil
+Nombre del archivo: Profile.jpg
+
