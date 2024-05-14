@@ -18,3 +18,13 @@ Descripción: hola
 Categoría: Perfil
 Nombre del archivo: Profile.jpg
 
+Título: Yo
+Descripción: Prueba
+Categoría: Perfil
+Nombre del archivo: 375112d7-6ce8-450e-9f60-e9ef6d8b63d5.jfif
+
+Título: Hola
+Descripción: Prueba
+Categoría: Prueba
+Nombre del archivo: EvidenciaSST.png
+
