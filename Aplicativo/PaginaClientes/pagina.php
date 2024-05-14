@@ -54,7 +54,7 @@ $conexion->close();
         
         <nav>
             <ul class="linksnav">
-                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="pagina.php">Inicio</a></li>
                 <li><a href="fotografos.html">Fotografos</a></li>
                 <li><a href="categorias.html">Categorías</a></li>
                 <li><a href="contacto.html">Contacto</a></li>

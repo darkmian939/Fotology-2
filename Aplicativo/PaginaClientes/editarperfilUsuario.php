@@ -37,11 +37,11 @@ $conexion->close();
 
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Cliente</title>
+    <title>Editar Perfil</title>
     <link rel="stylesheet" href="../PaginaFotografos/stylepagfotografo.css">
 </head>
 <body>
@@ -49,24 +49,30 @@ $conexion->close();
         <div class="logo">
             <img src="../Recursos/LOGOA.png" alt="Logo">
         </div>
-        <nav>
-            <ul class="linksnav">
-            <li><a href="pagina.php">Inicio</a></li>
-            </ul>
-        </nav>
-        <a class="btn" href="../InicioDeSesion/Usuario.php"><button>Cerrar Sesión</button></a>
     </header>
     <main>
-        <section class="profile">
-            <div class="profile-image">
-                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil" />
-            </div>
-            <div class="profile-info">
-                <h2 id="profile-name"><?php echo $nombre; ?></h2><br>
-                <p>Correo Electrónico: <span id="profile-email"><?php echo $correo; ?></span></p><br>
-                <p>Telefono de contacto: <span id="contacto"><?php echo $telefono; ?></span></p><br>
-                <a class="edit-button" href="editarperfilUsuario.php">Editar Perfil</a> <!-- Revisar el enlace a editarperfil.php -->
-            </div>
+        <section class="profile-edit">
+            <h2>Editar Perfil</h2><br>
+            <form id="edit-profile-form" method="POST" action="editarelperfil.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?php echo $_SESSION['usuario_id']; ?>">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="<?php echo $nombre; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" value="<?php echo $correo; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Número de contacto:</label>
+                    <input type="number" id="telefono" name="telefono" value="<?php echo $telefono; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="foto">Foto de Perfil:</label>
+                    <input type="file" id="foto" name="foto">
+                </div>
+                <button class="edit-button" type="submit">Guardar Cambios</button>
+            </form>
         </section>
     </main>
 </body>
