@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('../InicioDeSesion/conexion.php');
+
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: iniciodesesion.php");
@@ -7,8 +9,20 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $nombreCliente = $_SESSION['nombre_cliente'];
-$fotoPerfil = $_SESSION['foto_perfil'];
+
+// Obtener la foto de perfil del usuario desde la base de datos
+$usuario_id = $_SESSION['usuario_id'];
+
+// Modifica esta consulta para usar el nombre correcto de la columna que identifica al usuario
+$stmt = $conexion->prepare("SELECT foto_perfil FROM Cliente WHERE IDcliente = ?");
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+$stmt->bind_result($fotoPerfil);
+$stmt->fetch();
+$stmt->close();
+$conexion->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,10 +34,24 @@ $fotoPerfil = $_SESSION['foto_perfil'];
 </head>
 <body>
     <header class="header">
-        <!-- Logo y menú de navegación -->
-        <div class="logo">
-            <img src="../Recursos/LOGOA.png" alt="Logo">
+    <div class="perfil-btn">
+            <form id="perfilForm" method="GET" action="perfilusuario.php">
+                <input type="hidden" name="usuario_id" value="<?php echo $_SESSION['usuario_id']; ?>">
+                <button type="submit" class="btn-profile">
+                    <?php if (!empty($fotoPerfil)) : ?>
+                        <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil">
+                    <?php endif; ?>
+                    <?php echo $nombreCliente; ?>
+                </button>
+            </form>
         </div>
+        <script>
+            document.getElementById('perfilForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                window.location.href = this.action + '?usuario_id=' + this.querySelector('input[name="usuario_id"]').value;
+            });
+        </script>
+        
         <nav>
             <ul class="linksnav">
                 <li><a href="pagina.html">Inicio</a></li>
@@ -32,21 +60,7 @@ $fotoPerfil = $_SESSION['foto_perfil'];
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-
-        <!-- Menú desplegable -->
-        <div class="perfil-dropdown">
-            <button class="btn-profile">
-                <img src="<?php echo $fotoPerfil; ?>" alt="Foto de perfil">
-                Bienvenido, <?php echo $nombreCliente; ?>
-                <i class="fas fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="perfil.php">Ver Perfil</a>
-                <form method="post" action="../InicioDeSesion/Usuario.php">
-                    <button type="submit"name="cerrar_sesion">Cerrar Sesión</button>
-                </form>
-            </div>
-        </div>
+        <a class="btn" href="../InicioDeSesion/Usuario.php"><button>Cerrar Sesion</button></a>
     </header>
     <div class="fdestacados">
       <h1>Fotografos</h1>

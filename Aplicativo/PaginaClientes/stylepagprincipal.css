@@ -1,3 +1,4 @@
+/* Estilos generales */
 * {
     padding: 0;
     margin: 0;
@@ -9,71 +10,102 @@ body {
     background-color: #dfdcdc;
 }
 
-/* Header */
+/* Estilos del encabezado */
 .header {
     background-color: #14150f;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
     align-items: center;
     height: 100%;
     padding: 5px 10%;
 }
 
-    .header .logo {
-        cursor: pointer;
-        margin-right: auto;
-    }
+.header .logo {
+    cursor: pointer;
+    margin-right: auto; /* Mueve el logo a la izquierda */
+}
 
-        .header .logo img {
-            height: 60px;
-            width: auto;
-            transition: all 0.3s;
-        }
+.header .logo img {
+    height: 60px;
+    width: auto;
+    transition: all 0.3s;
+}
 
-            .header .logo img:hover {
-                transform: scale(1.1);
-            }
+.header .logo img:hover {
+    transform: scale(1.1);
+}
 
-    .header .linksnav {
-        list-style: none;
-    }
+.header .linksnav {
+    list-style: none;
+}
 
-        .header .linksnav li {
-            display: inline-block;
-            padding: 0 20px;
-        }
+.header .linksnav li {
+    display: inline-block;
+    padding: 0 20px;
+}
 
-            .header .linksnav li:hover {
-                transform: scale(1.1);
-            }
+.header .linksnav li:hover {
+    transform: scale(1.1);
+}
 
-        .header .linksnav a {
-            font-size: 700;
-            color: #eceff1;
-            text-decoration: none;
-        }
+.header .linksnav a {
+    font-size: 700; /* Esta propiedad no es válida, revisa el valor de font-size */
+    color: #eceff1;
+    text-decoration: none;
+}
 
-        .header .linksnav li a:hover {
-            color: #ffc403;
-        }
+.header .linksnav li a:hover {
+    color: #ffc403;
+}
 
-    .header .btn button {
-        margin-left: 20px;
-        font-weight: 700;
-        color: #1b3039;
-        padding: 9px 25px;
-        background: #eceff1;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
-    }
+.header .btn button {
+    margin-left: 20px;
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
 
-        .header .btn button:hover {
-            background-color: #e2f1f8;
-            color: #ffc403;
-            transform: scale(1.1);
-        }
+.header .btn button:hover {
+    background-color: #e2f1f8;
+    color: #ffc403;
+    transform: scale(1.1);
+}
+
+/* Estilos del perfil */
+.perfil-btn {
+    margin-right: auto; /* Mueve el perfil hacia la izquierda */
+}
+
+.perfil-btn .btn-profile {
+    font-weight: 700;
+    color: #ffffff; /* Cambio de color a blanco para el texto */
+    padding: 6px 16px; /* Reducción del padding para hacer el botón más pequeño */
+    background: #14150f; /* Cambio de color a negro para el fondo */
+    border: none;
+    border-radius: 30px; /* Reducción del radio para hacer el botón más pequeño */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.perfil-btn .btn-profile img {
+    margin-right: 8px; /* Espacio entre la imagen y el texto */
+    height: 50px; /* Reducción de la altura de la imagen */
+    width: auto;
+    border-radius: 50%; /* Para redondear la imagen */
+    object-fit: cover; /* Para mantener la proporción y recortar la imagen si es necesario */
+}
+
+.perfil-btn .btn-profile:hover {
+    background-color: #1b3039; /* Cambio de color al pasar el mouse */
+    transform: scale(1.05); /* Ajuste del efecto de escala al pasar el mouse */
+}
 
 /* Carrusel */
 .carrusel {
@@ -288,3 +320,9 @@ body {
         color: #14150f;
         transform: scale(1.1);
     }
+
+
+
+
+
+
