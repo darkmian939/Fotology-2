@@ -41,8 +41,12 @@
         </form>
     </div>
     <p>¿Quieres iniciar sesión como <a href="fotografo.php">Fotógrafo</a> o <a href="administrador.php">Administrador</a>?</p><BR></BR>
+<<<<<<< HEAD
     <p>¿Quieres registrarte como <a href="registrousuario.php">Usuario</a> 
     <a href="#olvido" class="olvido">Olvidó la Contraseña</a>
+=======
+    <a href="./recuperar.php" class="olvido">Olvidó la Contraseña</a>
+>>>>>>> e894639ead58489b7f45988ca6ac1a6e6f4f644d
 </div>
 <script src="script.js"></script>
 </body>

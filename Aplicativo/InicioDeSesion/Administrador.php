@@ -39,7 +39,7 @@
         <input type="submit" value="Iniciar Sesión" class="btn">
     </form>
     <p>¿Quieres iniciar sesión como <a href="Usuario.php">Usuario</a> o <a href="Fotografo.php">Fotógrafo</a>?</p><BR></BR>
-    <a href="#olvido" class="olvido">Olvidó la Contraseña</a>
+    <a href="./recuperar.php" class="olvido">Olvidó la Contraseña</a>
 </div>
 <script src="script.js"></script>
 </body>

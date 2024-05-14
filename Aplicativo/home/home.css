@@ -120,64 +120,48 @@ body {
   }
 }
 
-/* Estilos para la sección */
+/* Estilos adicionales después del carrusel */
 .contenedor-nosotros {
-  padding-top: 5rem;
-  color: black; /* Cambio el color de texto a negro */
-  text-align: center; /* Alineación de texto centrada */
-  background-color: white; /* Cambio el color de fondo a blanco */
-  margin: 0 auto; /* Centrar el contenedor */
-  max-width: 1200px; /* Ancho máximo del contenedor */
+  padding: 5rem 0; /* Espaciado alrededor del contenido */
+  background-color: #f8f9fa; /* Cambia el color de fondo a un tono más claro */
+  text-align: center; /* Alinea el contenido al centro */
 }
 
 .texto-nosotros {
-  max-width: 1000px;
-  margin: 0 auto; /* Centrar el contenido */
+  max-width: 800px;
+  margin: 0 auto; /* Centra el contenido */
 }
 
 .texto-nosotros h1 {
-  font-size: 3rem;
-  text-align: center;
+  margin-bottom: 2rem; /* Espaciado inferior */
 }
 
 .texto-nosotros p {
-  font-size: 1.5rem;
-}
-
-.btn {
-  display: inline-block;
-  margin: 1rem auto;
-  padding: 10px 20px;
-  background-color: #000000;
-  color: #ffffff;
   font-size: 1.6rem;
-  border: 2px solid #000000; /* Agregamos un borde negro para resaltar */
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Incluimos transición para el borde */
+  line-height: 1.6;
+  margin-bottom: 1.5rem; /* Espaciado inferior */
 }
 
-.btn:hover {
-  background-color: #ff9900;
-  color: #ffffff;
-  border-color: #ff9900; /* Cambiamos el color del borde al pasar el mouse */
+.boton {
+  display: inline-block;
+  padding: 1rem 2rem; /* Espaciado interno */
+  background-color: #ffc107; /* Cambia el color de fondo */
+  color: #fff; /* Cambia el color del texto a blanco */
+  font-size: 1.2rem;
+  text-decoration: none; /* Quita el subrayado del enlace */
+  border-radius: 40px;
+  transition: background-color 0.3s; /* Agrega una transición al color de fondo */
 }
 
-
-/* Estilos adicionales para centrar el botón */
-.texto-nosotros {
-  text-align: center; /* Alineación centrada */
-}
-
-.texto-nosotros .btn {
-  margin: 1rem auto; /* Centrar el botón */
+.boton:hover {
+  background-color: #ff9800; /* Cambia el color de fondo al pasar el mouse */
 }
 
 /* Estilos para el pie de página */
 .footer {
   text-align: center;
-  background-color: #000000; /* Color de fondo del pie de página */
-  color: white; /* Texto blanco */
+  background-color: #000000;
+  color: white;
   padding: 2rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }

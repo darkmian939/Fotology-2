@@ -9,7 +9,7 @@ body {
 
 
 body {
-    background: linear-gradient(to right, #ffa97e, #ff7d2c);
+    background: linear-gradient(to left, #ff8800, #dc5400);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -20,7 +20,8 @@ body {
 .contenedor-form {
     background-color: #fff;
     max-width: 500px;
-    width: 100%;
+    width: 400px;
+    height: 480px;
     margin: auto;
     background-size: cover;
     background-position: center center;
