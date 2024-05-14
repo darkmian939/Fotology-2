@@ -68,7 +68,7 @@ $conexion->close();
                 <h2 id="profile-name"><?php echo $nombre; ?></h2><br>
                 <p>Correo Electrónico: <span id="profile-email"><?php echo $correo; ?></span></p><br>
                 <p>Telefono de contacto: <span id="contacto"><?php echo $telefono; ?></span></p><br>
-                <a class="edit-button" href="editarperfil.html">Editar Perfil</a> <!-- Revisar el enlace a editarperfil.php -->
+                <a class="edit-button" href="editarperfil.php">Editar Perfil</a> <!-- Revisar el enlace a editarperfil.php -->
             </div>
         </section>
     </main>
