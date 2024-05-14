@@ -11,7 +11,86 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+        .notification-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-icon {
+    color: #555;
+    font-size: 24px;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: orange;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 999;
+}
+
+.notification-dropdown.active {
+    display: block;
+}
+
+.notification-dropdown-header {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.notification-dropdown-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.notification-dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-dropdown-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.notification-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.notification-dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
     </style>
+     <link rel="stylesheet" href="styleadministrador.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/646ac4fad6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styleadministrador.css">
     <title>Panel de Administrador</title>
 </head>
@@ -26,7 +105,25 @@ function eliminar(){
         <div class="logo">
             <img src="../Recursos/LOGOA.png" alt="Logo" />
         </div>
+        <div class="notifications">
+    <button class="notification-btn" onclick="toggleNotificationDropdown()">
+        <i class="fas fa-bell notification-icon"></i> <!-- Ícono de notificación -->
+        <span class="badge">3</span> <!-- Número de notificaciones pendientes -->
+    </button>
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-dropdown-header">
+            <h3>Notificaciones</h3>
+        </div>
+        <ul class="notification-dropdown-list">
+            <li class="notification-dropdown-item">Notificación 1</li>
+            <li class="notification-dropdown-item">Notificación 2</li>
+            <li class="notification-dropdown-item">Notificación 3</li>
+        </ul>
+    </div>
+</div>
+
         <a class="btn" href="../InicioDeSesion/index.php"><button>Cerrar Sesion</button></a>
+        
     </header>
 
     <div class="container">
